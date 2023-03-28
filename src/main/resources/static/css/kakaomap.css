@@ -19,8 +19,8 @@ html, body{
 aside{
   position: fixed;
   z-index: 10;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
 
   width: 390px;
   height: 100%;
@@ -61,8 +61,10 @@ header{
 
   cursor: pointer;
 }
+
 .title-text{
   margin: 0;
+  line-height: 20px; /*줄높이*/
   font-size: 20px;
   font-weight: 400;
   color: white;
@@ -85,9 +87,48 @@ header{
   cursor: pointer
 }
 
-.my-location-label{
-  font-size: 11px;
+#my-location{
+  display: none; /*체크박스 사라짐*/
 }
+
+.my-location-label{
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+#my-location + .my-location-label::before{
+  display: inline-block;
+  content: "";
+  
+  margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  
+  border: 2px solid #ffffff90;
+  border-radius: 10px;
+}
+
+#my-location:checked + .my-location-label::before{
+  display: inline-block;
+  content: "✓";
+
+  margin-right: 5px;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  
+  line-height: 10px;
+  color: #258fff;
+  font-size: 10px;
+  font-weight: 700;
+  background-color: white;
+}
+
+
 
 .search{
   display: flex;
@@ -99,6 +140,7 @@ header{
   width: 100%;
   height: 46px;
 
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.2);
   background-color: white;
 
   overflow: hidden;
@@ -126,6 +168,7 @@ header{
 
   color: #dbdbdb;
 
+  cursor: pointer;
 }
 
 .menu{ /* ul은 기본padding이 들어가있음 */
@@ -167,4 +210,106 @@ header{
   background-color: #1467dd;
 
   font-weight: 700;
+}
+
+.report-error{
+  border-bottom: 1px solid #f0f0f0;
+  height: 84px;
+}
+.info{
+  border-bottom: #f0f0f0;
+  padding: 23px 0px 19px 19px;
+  height: 120.5px;
+
+}
+
+.title-around{ /* h3 기본적으로 margin값있음*/
+  margin: 0;
+  padding-left: 8px;
+  font-size: 13px;
+
+}
+
+.list-around{ /* ul 기본적으로 margin값있음*/
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  padding-top: 8px;
+}
+
+.button-around{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  
+  width: 50px;
+  height: 48px;
+
+  background-color: #ffffff00;
+
+  cursor: pointer;
+}
+
+.button-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0px 10px;
+  border: 1px solid #f0f0f0f0;
+  border-radius: 30px;
+
+  width: 30px;
+  height: 30px;
+
+  overflow: hidden;
+}
+
+.button-icon:hover{
+  background-color: #f0f0f0;
+}
+
+.button-icon i{
+  color: #555555;
+
+}
+
+.button-title{
+  font-size: 10px;
+  color: #a0a0a0;
+}
+
+.toggle-button{
+  position:absolute;
+  top: 50%;
+  right: -18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  
+  padding: 0px;
+  width: 18px;
+  height: 50px;
+
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.014);
+  background-color: white;
+  
+  font-size: 10px;
+  color: #258fff;
+  line-height: 0px;
+  transform: translateY(-50%); /* 기준점의 y축 이동*/
+  
+  cursor: pointer;
 }
